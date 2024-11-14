@@ -21,21 +21,21 @@ func main() {
 	fmt.Println(quicksort(numeros))
 }
 
-func quicksort(numeros []int) []int{
+func quicksort(numeros []int) []int {
 	if len(numeros) <= 1 {
 		return numeros
 	}
 
-	n := make([]int len(numeros))
+	n := make([]int, len(numeros))
 	copy(n, numeros)
 
-	indicePivo := len(n)/2
-	pivo := m[indicePivo]
+	indicePivo := len(n) / 2
+	pivo := n[indicePivo]
 	n = append(n[:indicePivo], n[indicePivo+1:]...)
-	
+
 	menores, maiores := particionar(n, pivo)
 
-	return append(append(quicksort(menores), pivo) quicksort(maiores)...)
+	return append(append(quicksort(menores), pivo), quicksort(maiores)...)
 }
 
 func particionar(numeros []int, pivo int) (menores []int, maiores []int) {
